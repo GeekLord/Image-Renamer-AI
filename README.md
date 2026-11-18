@@ -21,11 +21,16 @@ Supported formats: `.jpg .jpeg .png .tiff .tif .bmp .webp .gif`. GIF and BMP are
 
 - Python 3.8 or later.
 - An Inferway API key.
-- Optional: `pip install python-dotenv` to load the key from `.env`.
+- Optional: `pip install -r requirements.txt` to load the key from `.env`.
 
 ## Setup
 
-1. Copy `.env.sample` to `.env` and put your key in it:
+1. Optional: Install dependencies to load `.env` variables:
+   ```powershell
+   pip install -r requirements.txt
+   ```
+
+2. Copy `.env.sample` to `.env` and put your key in it:
    ```env
    INFERWAY_API_KEY=your_api_key_here
    ```
@@ -35,7 +40,7 @@ Supported formats: `.jpg .jpeg .png .tiff .tif .bmp .webp .gif`. GIF and BMP are
 
    Without `python-dotenv`, `.env` is ignored and you must set the variable in your shell.
 
-2. Check the key and model with the smoke test:
+3. Check the key and model with the smoke test:
    ```powershell
    python smoke_test.py
    ```
@@ -140,5 +145,6 @@ python -m unittest test_rename_images.py
 | `rename_images.py` | The CLI: metadata extraction, API calls, naming, renaming. |
 | `smoke_test.py` | Checks the API key and model connection. |
 | `test_rename_images.py` | Unit tests. They build mock JPEGs with EXIF data. |
+| `requirements.txt` | Dependency list (`python-dotenv` for `.env` support). |
 | `.env.sample` | Template for `.env`. |
 | `rename_images.log` | Run log, created on the first run (git-ignored). |
